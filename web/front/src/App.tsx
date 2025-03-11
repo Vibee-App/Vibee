@@ -4,9 +4,12 @@ import './App.css';
 import arrow from './assets/arrow.png';
 import lynxLogo from './assets/lynx-logo.png';
 import reactLynxLogo from './assets/react-logo.png';
+import { useNavigate } from 'react-router';
 
 export function App() {
   const [alterLogo, setAlterLogo] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.info('Hello, ReactLynx');
@@ -18,7 +21,7 @@ export function App() {
   }, [alterLogo]);
 
   return (
-    <view>
+    <page>
       <view className="Background" />
       <view className="App">
         <view className="Banner">
@@ -40,8 +43,12 @@ export function App() {
             to see updates!
           </text>
         </view>
-        <view style={{ flex: 1 }}></view>
+        <view className="Footer">
+          <text className="FooterText" bindtap={() => navigate('/events')}>Powered by Lynx</text>
+          <text bindtap={() => navigate('/events')}>Events</text>
+          <text bindtap={() => navigate('/profiles')}>About</text>
       </view>
-    </view>
+      </view>
+    </page>
   );
 }
