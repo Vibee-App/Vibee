@@ -6,24 +6,17 @@ import Events from './pages/events/Events.jsx';
 
 const router = createMemoryRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
+    children: [
+      { index: true, element: <view>Bienvenue dans l'application</view> },
+      { path: 'profiles', element: <Profile /> },
+      { path: 'events', element: <Events /> },
+    ],
   },
-  {
-    path: "/profiles",
-    element: <Profile />,
-  },
-  {
-    path: "/events",
-    element: <Events />,
-  }
-], {
-  initialEntries: ['/'],
-});
+]);
 
-root.render(
-  <RouterProvider router={router} />
-);
+root.render(<RouterProvider router={router} />);
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept();

@@ -5,19 +5,19 @@
   "type": "module",
   "scripts": {
     "build": "rsbuild build",
-    "dev": "concurrently \"npm run dev:web\" \"npm run dev:front\"",
-    "dev:front": "cd front && npm run dev",
-    "dev:web": "rsbuild dev --open",
+    "dev": "rsbuild dev --open",
     "preview": "rsbuild preview"
   },
   "dependencies": {
     "@lynx-js/web-core": "^0.7.1",
     "@lynx-js/web-elements": "^0.3.0",
-    "concurrently": "^9.1.2"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@rsbuild/core": "^1.2.14",
     "@rsbuild/plugin-react": "^1.1.1",
+    "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "typescript": "^5.8.2"
