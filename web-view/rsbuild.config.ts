@@ -12,11 +12,7 @@ export default defineConfig({
       {
         name: path.join(
           __dirname,
-<<<<<<<< HEAD:web-view/rsbuild.config.ts
           '../',
-========
-          '..',
->>>>>>>> a9ccb5079f2da1e4b8f54617db239ac4d74f35b5:web/rsbuild.config.ts
           'front',
           'dist',
         ),

@@ -55,3 +55,10 @@ text {
 .MainContainer {
   padding-bottom: 60px; /* Ajustez cette valeur selon la hauteur de votre barre de navigation */
 }
+
+@media screen and (max-width: 768px) {
+  .MainContainer {
+    zoom: 1.5;
+  }
+  
+}
