@@ -5,9 +5,7 @@
   "scripts": {
     "build": "rspeedy build",
     "check": "biome check --write",
-    "dev": "concurrently \"npm run dev:front\" \"npm run dev:web\"",
-    "dev:front": "rspeedy dev",
-    "dev:web": "cd ../web && rsbuild dev",
+    "dev": "rspeedy dev",
     "format": "biome format --write",
     "preview": "rspeedy preview"
   },
