@@ -10,16 +10,23 @@
   },
   "dependencies": {
     "@lynx-js/web-core": "^0.7.1",
+<<<<<<<< HEAD:web-view/package.json
     "@lynx-js/web-elements": "^0.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+========
+    "@lynx-js/web-elements": "^0.3.0"
+>>>>>>>> a9ccb5079f2da1e4b8f54617db239ac4d74f35b5:web/package.json
   },
   "devDependencies": {
     "@rsbuild/core": "^1.2.14",
     "@rsbuild/plugin-react": "^1.1.1",
+<<<<<<<< HEAD:web-view/package.json
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+========
+>>>>>>>> a9ccb5079f2da1e4b8f54617db239ac4d74f35b5:web/package.json
     "typescript": "^5.8.2"
   }
 }
