@@ -1,0 +1,16 @@
+.input-card-url {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.connect-button .input-box {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.button-text {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5em; /* Ajustement pour éviter que le texte soit trop grand */
+    color: white;
+}

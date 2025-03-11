@@ -1,17 +1,12 @@
 :root {
-  background-color: #000;
+  background-color: white;
   --color-text: #fff;
 }
 
 .Background {
   position: fixed;
-  background: radial-gradient(
-    71.43% 62.3% at 46.43% 36.43%,
-    rgba(18, 229, 229, 0) 15%,
-    rgba(239, 155, 255, 0.3) 56.35%,
-    #ff6448 100%
-  );
-  box-shadow: 0px 12.93px 28.74px 0px #ffd28db2 inset;
+  background-color: white;
+  box-shadow: 0px 12.93px 28.74px 0px white;
   border-radius: 50%;
   width: 200vw;
   height: 200vw;
@@ -22,11 +17,18 @@
 
 .App {
   position: relative;
-  min-height: 100vh;
+  width: 100%;
+  background-color: #D3AB0A;
+  min-height: 660px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.bee_image{
+  width: 100px;
+  height: 100px;
 }
 
 text {
