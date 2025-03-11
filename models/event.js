@@ -2,13 +2,13 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Event extends Model {
+  class event extends Model {
     static associate(models) {
       // Associations si besoin
     }
   }
 
-  Event.init(
+  event.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -53,5 +53,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return Event;
+  return event;
 };
