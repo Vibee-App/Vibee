@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from '@lynx-js/react';
-import { useNavigate, Outlet } from 'react-router';
+import { useEffect } from '@lynx-js/react';
+import { Outlet } from 'react-router';
 import './App.css';
 import { Navigation } from './components/navigation/Navigation.jsx';
 
