@@ -1,6 +1,7 @@
 import React from 'react';
 import './Profile.css';
 import Button from '../../components/button/Button.jsx';
+import Input from '../../components/input/Input.jsx';
 
 interface UserProfile {
   name: string;
@@ -28,6 +29,7 @@ const Profile: React.FC = () => {
       <text className="label">Email:</text>
       <text className="value">{mockUser.email}</text>
       <Button text="Home" route="/" />
+      <Input type={"password"} />
     </scroll-view>
   );
 };
