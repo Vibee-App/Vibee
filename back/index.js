@@ -27,34 +27,12 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-// Chargement des modèles Sequelize
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&  // Ignorer les fichiers cachés
-      file !== basename &&         // Ignorer le fichier courant
-      file.slice(-3) === '.js' &&  // Ne charger que les fichiers .js
-      file.indexOf('.test.js') === -1  // Ne pas charger les fichiers de test
-    );
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
-
-// Associer les modèles si nécessaire
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
 // Définir les routes
 app.use('/api/authent', require('./routes/UserRoute.js'));
+
+app.get('/ok', (req, res) => {
+  res.send('ok');
+});
 
 // Démarrer le serveur
 app.listen(port, () => {
