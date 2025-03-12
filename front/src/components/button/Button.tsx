@@ -11,33 +11,36 @@ interface ButtonProps {
 export function Button({ text, dark, route }: ButtonProps) {
   const [color, setColor] = useState(true); // Bouton noir ou blanc
   const [buttonText, setButtonText] = useState('');
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const nav = useNavigate();
 
   useEffect(() => {
-    if (dark !== undefined && dark) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
+    setColor(dark ?? false);
     setButtonText(text);
-  }, [dark]);
+    setIsLoaded(true)
+
+  }, [dark, text]);
+
+  if (!isLoaded) {
+    return (
+      <view class="input-card-url loading">
+        <text>Chargement...</text>
+      </view>
+    );
+  }
 
   return (
     <view
-      className="input-card-url"
-      bindtap={() => nav(`${route}`)}
+      class="input-card-url"
+      bindtap={() => nav(route)}
       style={{ backgroundColor: color ? '#000000' : '#FFFFFF' }}
     >
-      <text>ETETE</text>
       <text
-        className="button-text"
-        style={{
-          fontFamily: 'Ubuntu-Light',
-          color: color ? '#FFFFFF' : '#000000',
-        }}
+        class="button-text"
+        style={{ color: color ? '#FFFFFF' : '#000000' }}
       >
-        {buttonText} TEST
+        {buttonText}
       </text>
     </view>
   );
