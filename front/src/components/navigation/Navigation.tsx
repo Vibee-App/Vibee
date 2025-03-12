@@ -7,8 +7,9 @@ export function Navigation() {
   
   return (
     <view className="Navigation">
-      <view className="NavItem" bindtap={() => navigate('/home')}>
+      <view className="NavItem">
         <HomeIcon />
+        <text bindtap={() => navigate('/landing')}>Accueil</text>
       </view>
       
       <view className="NavItem" bindtap={() => navigate('/myEvents')}>
