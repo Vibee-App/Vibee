@@ -34,11 +34,11 @@ export function Button({ text, dark, route }: ButtonProps) {
     <view
       class="input-card-url"
       bindtap={() => nav(route)}
-      style={{ backgroundColor: color ? '#000000' : '#FFFFFF' }}
+      style={{ backgroundColor: color ? '#000000' : '#FFFFFF', border: "2px solid black"  }}
     >
       <text
         class="button-text"
-        style={{ color: color ? '#FFFFFF' : '#000000' }}
+        style={{ color: color ? '#FFFFFF' : '#000000'}}
       >
         {buttonText}
       </text>
