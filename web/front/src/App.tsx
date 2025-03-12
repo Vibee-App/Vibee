@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useState } from '@lynx-js/react';
-
-import './App.css';
-import arrow from './assets/arrow.png';
-import lynxLogo from './assets/lynx-logo.png';
-import reactLynxLogo from './assets/react-logo.png';
+import { jsxDEV as _jsxDEV } from "@lynx-js/react/jsx-dev-runtime";
+import { useState, useEffect, useCallback } from "@lynx-js/react";
+import Bee from './assets/bee.png'
+import "./App.css";
+import Button from './components/button/Button.jsx';
 
 export function App() {
+
   const [alterLogo, setAlterLogo] = useState(false);
 
   useEffect(() => {
@@ -22,23 +22,14 @@ export function App() {
       <view className="Background" />
       <view className="App">
         <view className="Banner">
-          <view className="Logo" bindtap={onTap}>
-            {alterLogo ? (
-              <image src={reactLynxLogo} className="Logo--react" />
-            ) : (
-              <image src={lynxLogo} className="Logo--lynx" />
-            )}
+          <view className="Logo">
+           <image src={Bee} className="bee_image"/>
           </view>
-          <text className="Title">Vibee EQK</text>
-          <text className="Subtitle">on Lynx & Express.js</text>
         </view>
         <view className="Content">
-          <image src={arrow} className="Arrow" />
-          <text className="Description">Tap the logo and have fun!</text>
-          <text className="Hint">
-            Edit<text style={{ fontStyle: 'italic' }}>{' src/App.tsx '}</text>
-            to see updates!
-          </text>
+          <view className="test">
+            <Button dark={true} root={"/product"}></Button>
+          </view>
         </view>
         <view style={{ flex: 1 }}></view>
       </view>
