@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "db:migrate": "node -r dotenv/config node_modules/.bin/sequelize-cli db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
