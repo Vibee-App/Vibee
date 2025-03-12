@@ -27,7 +27,7 @@ const Profile: React.FC = () => {
       <text className="value">{mockUser.age}</text>
       <text className="label">Email:</text>
       <text className="value">{mockUser.email}</text>
-      <Button text='Home' route='/'/>
+      <Button text="Home" route="/" />
     </scroll-view>
   );
 };

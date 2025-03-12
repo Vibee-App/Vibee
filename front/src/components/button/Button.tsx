@@ -1,6 +1,6 @@
-import { useState, useEffect } from "@lynx-js/react";
-import { useNavigate } from "react-router";
-import "./Button.css";
+import { useState, useEffect } from '@lynx-js/react';
+import { useNavigate } from 'react-router';
+import './Button.css';
 
 interface ButtonProps {
   text: string;
@@ -19,16 +19,26 @@ export function Button({ text, dark, route }: ButtonProps) {
       setColor(true);
     } else {
       setColor(false);
-    } 
+    }
     setButtonText(text);
   }, [dark]);
 
   return (
-    <view className="input-card-url" bindtap={() => nav(`${route}`)} style={{ backgroundColor: color ? "#000000" : "#FFFFFF" }}>
+    <view
+      className="input-card-url"
+      bindtap={() => nav(`${route}`)}
+      style={{ backgroundColor: color ? '#000000' : '#FFFFFF' }}
+    >
       <text>ETETE</text>
-          <text className="button-text" style={{ fontFamily: "Ubuntu-Light", color: color ? "#FFFFFF" : "#000000" }}>
-            {buttonText} TEST
-          </text>
+      <text
+        className="button-text"
+        style={{
+          fontFamily: 'Ubuntu-Light',
+          color: color ? '#FFFFFF' : '#000000',
+        }}
+      >
+        {buttonText} TEST
+      </text>
     </view>
   );
 }
