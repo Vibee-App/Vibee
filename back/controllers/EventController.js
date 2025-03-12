@@ -1,4 +1,6 @@
-const { Event } = require('../models');
+const path = require('path');
+const { Event } = require(path.join(__dirname, '../models'));
+
 
 exports.getAllEvents = async (req, res) => {
   try {
@@ -51,3 +53,4 @@ exports.deleteEvent = async (req, res) => {
     res.status(500).json({ error: 'Erreur serveur' });
   }
 };
+
