@@ -2,11 +2,10 @@ import { jsxDEV as _jsxDEV } from "@lynx-js/react/jsx-dev-runtime";
 import { useState, useEffect, useCallback } from "@lynx-js/react";
 import Bee from './assets/bee.png'
 import "./App.css";
-
-import './App.css';
 import Button from './components/button/Button.jsx';
 
 export function App() {
+
   const [alterLogo, setAlterLogo] = useState(false);
 
   useEffect(() => {
@@ -28,7 +27,9 @@ export function App() {
           </view>
         </view>
         <view className="Content">
-          <Button dark={true}></Button>
+          <view className="test">
+            <Button dark={true} root={"/product"}></Button>
+          </view>
         </view>
         <view style={{ flex: 1 }}></view>
       </view>

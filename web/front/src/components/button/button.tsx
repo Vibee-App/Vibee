@@ -1,31 +1,37 @@
-import { useState, useEffect } from "@lynx-js/react";
+import { useState, useEffect, root } from "@lynx-js/react";
+import { useNavigate } from "react-router";
 import "./Button.css";
 
 interface DarkProps {
-  dark: boolean; // ✅ Utilisation correcte de `string`
+  dark: boolean;
+  root: string;
 }
 
-export function Button({ dark }: DarkProps) { 
+export function Button({ dark, root }: DarkProps) {
   const [inputValue, setInputValue] = useState("");
   const [textInsideButton, setTextInsideButton] = useState("");
-  const [color, setColor] = useState(true); // ✅ Utilisation correcte de la prop `dark`
+  const [color, setColor] = useState(true); // Bouton noir ou blanc
+  const [rooting, setRooting] = useState(""); // Chemin du bouton
+
+  const nav = useNavigate();
 
   useEffect(() => {
-    setColor(dark)
-    setTextInsideButton("Aucun")
-  }, [dark]); // Déclenché uniquement lors du montage
-
+    setRooting(root);
+    setColor(dark);
+    setTextInsideButton("Aucun");
+  }, [dark]);
 
   return (
-    <view className="input-card-url"  style={{ backgroundColor: color ? "#000000" : "#FFFFFF" }}>
-      <input
+    <view className="input-card-url" bindtap={() => nav(`${rooting}`)} style={{ backgroundColor: color ? "#000000" : "#FFFFFF" }}>
+      <view
         id="input-id"
         className="input-box"
-        value={inputValue}
-        placeholder="Enter Card URL"
-      />
-      <view className="connect-button">
-        <text className="button-text" style={{ color: color ? "#FFFFFF" : "#000000" }}>{textInsideButton}</text>
+      >
+        <view className="connect-button">
+          <text className="button-text" style={{ fontFamily: "Ubuntu-Light", color: color ? "#FFFFFF" : "#000000" }}>
+            {textInsideButton}
+          </text>
+        </view>
       </view>
     </view>
   );
