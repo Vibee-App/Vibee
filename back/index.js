@@ -16,8 +16,6 @@ const port = 4000;  // Port sur lequel le serveur écoutera
 
 
 app.use(express.json());
-
-// Middleware pour traiter les données URL-encodées
 app.use(express.urlencoded({ extended: true }));
 
 let sequelize;

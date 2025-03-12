@@ -1,9 +1,14 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
-const Account = require('./LastAccount');
-const { type } = require('os');
+const sequelize = require('../config/Db.js');
+const Account = require('./account.js');
+
 
 const Company = sequelize.define('Company', {
+  accountId: {  
+    type: DataTypes.UUID,
+    primaryKey: true,  // 🚀 Indique que c'est la clé primaire
+    allowNull: false,
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
