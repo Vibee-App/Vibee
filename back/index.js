@@ -1,5 +1,5 @@
 const express = require('express');
-const eventRoutes = require('./routes/EventRoute');
+const eventRoutes = require('./routes/EventRoute.js');
 
 const app = express();
 

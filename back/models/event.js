@@ -1,48 +1,54 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/Db.js');
-
+const sequelize = require('../config/Db.js');  // Vérifie si la connexion est bien configurée dans `Db.js`
 
 const Event = sequelize.define('Event', {
-  ID: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true
+  id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    primaryKey: true,
+  },
+  idCreateur: {
+    field: "IdCreateur",
+    type: DataTypes.UUID, // idCreateur devrait être un UUID pour correspondre à l'exemple
+    allowNull: true,
   },
   DateDebut: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: true,
   },
   DateFin: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: true,
   },
   Lieu: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true,
   },
   Adresse: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true,
   },
   Tags: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   Tarif: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true,
   },
   Description: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   Image: {
     type: DataTypes.STRING,
-    allowNull: true
-  }
+    allowNull: true,
+  },Nom: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 }, {
-  timestamps: true, 
+  timestamps: true,  // Cela activera createdAt et updatedAt
 });
-
 
 module.exports = Event;
