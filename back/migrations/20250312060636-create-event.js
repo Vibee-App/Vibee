@@ -12,23 +12,35 @@ module.exports = {
       nom: {
         type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.STRING
-      },
-      lieu: {
-        type: Sequelize.STRING
-      },
       idCreateur: {
         type: Sequelize.INTEGER
       },
       type: {
         type: Sequelize.STRING
       },
-      tag: {
+      dateDebut: {
+        type: Sequelize.DATE
+      },
+      dateFin: {
+        type: Sequelize.DATE
+      },
+      lieu: {
+        type: Sequelize.STRING
+      },
+      adresse: {
+        type: Sequelize.STRING
+      },
+      tags: {
         type: Sequelize.STRING
       },
       tarif: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
+      },
+      description: {
+        type: Sequelize.TEXT
+      },
+      image: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
