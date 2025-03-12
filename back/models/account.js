@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../config/Db.js');
 const bcrypt = require('bcryptjs');
 
 const Account = sequelize.define('Account', {
@@ -24,9 +24,5 @@ const Account = sequelize.define('Account', {
   timestamps: true,
 });
 
-// Hachage du mot de passe avant la création
-Account.beforeCreate(async (account) => {
-  account.password = await bcrypt.hash(account.password, 10);
-});
 
 module.exports = Account;

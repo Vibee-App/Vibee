@@ -1,4 +1,4 @@
-const User = require('../models/LastUser');
+const User = require('../models/Account');
 
 // Exemple pour récupérer un utilisateur par son ID (protégé par JWT et rôles)
 const getUserById = async (req, res) => {
@@ -14,5 +14,7 @@ const getUserById = async (req, res) => {
     res.status(500).json({ message: 'Erreur serveur' });
   }
 };
+
+
 
 module.exports = { getUserById };

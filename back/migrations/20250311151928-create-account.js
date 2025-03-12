@@ -5,12 +5,9 @@ module.exports = {
     await queryInterface.createTable('Accounts', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      id: {
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4, // Générer automatiquement un UUID
       },
       email: {
         type: Sequelize.STRING

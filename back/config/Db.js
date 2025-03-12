@@ -1,19 +1,18 @@
-const { Client } = require('pg');
+// Chargement des variables d'environnement et configuration Sequelize
+require('dotenv').config();
+const { Sequelize } = require('sequelize');
 
-// Crée un client PostgreSQL avec la chaîne de connexion
-const client = new Client({
-  connectionString: process.env.POSTGRESQL_ADDON_URI,  // Utilisation de la variable d'environnement
-  ssl: {
-    rejectUnauthorized: false,  // SSL si nécessaire
-  },
+// Charger la configuration Sequelize selon l'environnement
+const config = require('./config.js');
+const env = process.env.NODE_ENV || 'development'; // Par défaut, en mode développement
+const dbConfig = config[env];
+
+// Créer une instance de Sequelize avec la configuration
+const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+  host: dbConfig.host,
+  dialect: dbConfig.dialect,
+  port: dbConfig.port,
+  pool: dbConfig.pool,
 });
 
-client.connect()
-  .then(() => {
-    console.log('Connecté à la base de données PostgreSQL');
-  })
-  .catch((err) => {
-    console.error('Erreur de connexion à la base de données', err);
-  });
-
-module.exports = client;  // Exporte le client pour utilisation dans d'autres fichiers
+module.exports = sequelize;

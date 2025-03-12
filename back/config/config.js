@@ -7,7 +7,13 @@ module.exports = {
     database: process.env.POSTGRESQL_ADDON_DB,
     host: process.env.POSTGRESQL_ADDON_HOST,
     dialect: 'postgres',
-    port: process.env.POSTGRESQL_ADDON_PORT
+    port: process.env.POSTGRESQL_ADDON_PORT,
+    pool: {
+      max: 10, // Réduit le nombre max de connexions ouvertes
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
   },
   production: {
     username: process.env.POSTGRESQL_ADDON_USER,
