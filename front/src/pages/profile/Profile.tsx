@@ -1,6 +1,6 @@
 import React from 'react';
 import './Profile.css';
-import Button from '../../components/button/Button.jsx';
+import Button from '../../components/button/Button.tsx';
 
 interface UserProfile {
   name: string;
@@ -17,6 +17,7 @@ const mockUser: UserProfile = {
 };
 
 const Profile: React.FC = () => {
+
   return (
     <scroll-view className="container">
       <text className="title">User Profile</text>
@@ -27,7 +28,7 @@ const Profile: React.FC = () => {
       <text className="value">{mockUser.age}</text>
       <text className="label">Email:</text>
       <text className="value">{mockUser.email}</text>
-      <Button text="Home" route="/" />
+      <Button text="Home" route="/" dark="true" />
     </scroll-view>
   );
 };
