@@ -12,6 +12,7 @@ export default defineConfig({
       {
         name: path.join(
           __dirname,
+          '../',
           'front',
           'dist',
         ),
