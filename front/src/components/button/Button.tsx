@@ -24,7 +24,7 @@ export function Button({ text, dark, route }: ButtonProps) {
 
   if (!isLoaded) {
     return (
-      <view class="input-card-url loading">
+      <view className="input-card-url loading">
         <text>Chargement...</text>
       </view>
     );
@@ -32,12 +32,12 @@ export function Button({ text, dark, route }: ButtonProps) {
 
   return (
     <view
-      class="input-card-url"
+    className="input-card-url"
       bindtap={() => nav(route)}
       style={{ backgroundColor: color ? '#000000' : '#FFFFFF', border: "2px solid black"  }}
     >
       <text
-        class="button-text"
+        className="button-text"
         style={{ color: color ? '#FFFFFF' : '#000000'}}
       >
         {buttonText}
