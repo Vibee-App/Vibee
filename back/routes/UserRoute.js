@@ -11,6 +11,10 @@ router.post('/login', login);
 // Route d'inscription
 router.post('/register', register);
 
+//Register par type user
+router.post('/register', register);
+router.post('/register', register);
+
 // Route protégée (accessible seulement pour l'admin)
 router.get('/user/:id', authenticateJWT, authorizeRole(['admin']), getUserById);
 
