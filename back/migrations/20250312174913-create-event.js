@@ -5,12 +5,9 @@ module.exports = {
     await queryInterface.createTable('Events', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.UUID
-      },
-      id: {
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       IdCreateur: {
         type: Sequelize.UUID
@@ -31,10 +28,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       Tarif: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       Description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(10000)
       },
       Image: {
         type: Sequelize.STRING

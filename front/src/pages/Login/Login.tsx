@@ -5,17 +5,18 @@ export function Login() {
   let navigate = useNavigate();
 
   return (
-    <view className="login-container">
-      <view className="back-button" bindtap={() => navigate('/')}>←</view>  
-      <text className="login-title">Se Connecter</text>
-
-      <view className="input-container">
-        <input type="email" placeholder="jane@example.com" className="input-field" />
-        <input type="password" placeholder="********" className="input-field" />
+    <view className="login-page">
+      <view className="login-header">
+        <text className="login-title">Se Connecter</text>
+        <text className="login-back-btn" bindtap={() => navigate('/')}>←</text>
+      </view>
+      <view className="login-form">
+        <input type="email" placeholder="jane@example.com" className="login-input" />
+        <input type="password" placeholder="********" className="login-input" />
       </view>
 
-      <view className="button logint-button" bindtap={() => alert('Connexion réussie !')}>
-        <text>SE CONNECTER</text>
+      <view className="login-submit-btn" bindtap={() => alert('Connexion réussie !')}>
+        <text className='white'>SE CONNECTER</text>
       </view>
     </view>
   );

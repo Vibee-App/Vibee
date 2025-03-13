@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/Db.js');
 const Account = require('./account.js');
+const Reservation = require('./reservation.js');
 
 const User = sequelize.define('User', {
   accountId: {  
@@ -27,4 +28,5 @@ const User = sequelize.define('User', {
 // Relation : Un `User` appartient à `Account`
 User.belongsTo(Account, { foreignKey: 'accountId', onDelete: 'CASCADE' });
 
+User.hasMany(Reservation, { foreignKey: 'userId' });
 module.exports = User;
