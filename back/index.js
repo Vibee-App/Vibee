@@ -8,7 +8,7 @@ const basename = path.basename(__filename); // Nom du fichier actuel
 const env = process.env.NODE_ENV || "development"; // Environnement (par défaut 'development')
 const config = require(__dirname + "/config/config.js")[env]; // Chargement de la config en fonction de l'environnement
 const db = {};
-
+const cors = require("cors"); 
 // Importation des modules Swagger
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
@@ -19,6 +19,7 @@ const port = process.env.PORT || 4000; // Port sur lequel le serveur écoutera
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 let sequelize;
 if (config.use_env_variable) {
@@ -31,6 +32,9 @@ if (config.use_env_variable) {
     config
   );
 }
+
+// Définir les routes
+app.use("/api/authent", require("./routes/UserRoute.js"));
 
 // Configuration Swagger
 const swaggerOptions = {
@@ -58,6 +62,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Définir les routes
 app.use("/api/authent", require("./routes/UserRoute.js"));
 app.use("/api/event", require("./routes/EventRoute.js"));
+app.use("/api/reservation", require("./routes/ReservationRoute.js"));
 
 // Exemple de route
 /**
@@ -82,3 +87,7 @@ app.listen(port, () => {
 
 // Exporter les configurations et modèles
 module.exports = db;
+
+
+
+

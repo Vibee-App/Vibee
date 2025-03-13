@@ -1,5 +1,6 @@
 const express = require('express');
 const EventController = require('../controllers/EventController');
+const { authenticateJWT } = require('../middlewares/AuthMiddleware');
 
 const router = express.Router();
 /** 
@@ -25,7 +26,7 @@ const router = express.Router();
 *                   description:
 *                     type: string
 */
-router.get('/', EventController.getAllEvents);  
+router.get('/',authenticateJWT, EventController.getAllEvents);  
 
 /**
  * @swagger
@@ -57,7 +58,7 @@ router.get('/', EventController.getAllEvents);
  *       404:
  *         description: Événement non trouvé
  */
-router.get('/:id', EventController.getEventById);
+router.get('/:id', authenticateJWT,EventController.getEventById);
 
 // Route pour créer un événement
 /**
@@ -85,7 +86,7 @@ router.get('/:id', EventController.getEventById);
  *       400:
  *         description: Paramètres invalides
  */
-router.post('/', EventController.createEvent);
+router.post('/',authenticateJWT,EventController.createEvent);
 
 // Route pour mettre à jour un événement
 /**
@@ -122,7 +123,7 @@ router.post('/', EventController.createEvent);
  *       404:
  *         description: Événement non trouvé
  */
-router.put('/:id', EventController.updateEvent);
+router.put('/:id',authenticateJWT, EventController.updateEvent);
 
 // Route pour supprimer un événement
 /**
@@ -144,6 +145,6 @@ router.put('/:id', EventController.updateEvent);
  *       404:
  *         description: Événement non trouvé
  */
-router.delete('/:id', EventController.deleteEvent);
+router.delete('/:id',authenticateJWT,EventController.deleteEvent);
 
 module.exports = router;

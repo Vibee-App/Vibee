@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/Db.js');  // Vérifie si la connexion est bien configurée dans `Db.js`
+const Reservation = require('./reservation.js');
 
 const Event = sequelize.define('Event', {
   id: {
@@ -33,11 +34,11 @@ const Event = sequelize.define('Event', {
     allowNull: true,
   },
   Tarif: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: true,
   },
   Description: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(10000),
     allowNull: true,
   },
   Image: {
@@ -51,4 +52,5 @@ const Event = sequelize.define('Event', {
   timestamps: true,  // Cela activera createdAt et updatedAt
 });
 
+Event.hasMany(Reservation, { foreignKey: 'eventId' });
 module.exports = Event;
