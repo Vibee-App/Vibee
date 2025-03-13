@@ -1,15 +1,14 @@
 // MainLayout.tsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import './Container.css';
 
 const Container = () => {
   return (
     <view>
-      <text>Vibee</text>
-      <view>
+      <view className='Container'>
         <Outlet />
       </view>
-      <text>© 2025 Vibee</text>
     </view>
   );
 };
