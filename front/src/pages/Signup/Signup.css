@@ -1,5 +1,5 @@
-/* ✅ Conteneur principal */
-.login-page {
+/* Conteneur principal */
+.signup-page {
     height: 100vh;
     width: 100vw;
     background-color: white;
@@ -10,9 +10,7 @@
     text-align: center;
     padding: 20px;
 }
-
-/* ✅ Conteneur de la flèche et du titre */
-.login-header {
+.signup-header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;  /* ✅ Place la flèche bien à gauche */
@@ -23,50 +21,66 @@
     left: 20px;
     gap: 5px; /* ✅ Réduit l'espace entre la flèche et le titre */
 }
-
-/* ✅ Flèche retour */
-.login-back-btn {
-    font-size: 24px;
+/* Bouton retour */
+.signup-back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px; 
     font-weight: bold;
     cursor: pointer;
-    color: black !important;
+    color: black !important; 
+    background: transparent;
+    border: none;
 }
-
-/* ✅ Titre bien aligné */
-.login-title {
+.signup-title {
     font-size: 24px;
     font-weight: bold;
     color: black !important;
     text-align: left; 
-    margin: 0; 
+    
+    margin-bottom: 30px;
+}
+.signup-back-btn:hover {
+    opacity: 0.7;
 }
 
-/* ✅ Formulaire */
-.login-form {
+
+/* Conteneur du formulaire */
+.signup-form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
     gap: 15px;
 }
 
-/* ✅ Inputs */
-.login-input {
+/* Inputs */
+.signup-input {
     width: 97%;
-    height: 48px;
+    height: 32px;
     padding: 12px;
     font-size: 16px;
     border: 2px solid black;
     border-radius: 8px;
+    outline: none;
     background: white;
     color: black;
+    font-family: "Ubuntu", sans-serif;
+    text-align: left;
 }
 
-/* ✅ Bouton Connexion */
-.login-submit-btn {
+/* Effet au focus */
+.signup-input:focus {
+    border-color: #ffba00;
+    outline: none;
+}
+
+/* Bouton Inscription */
+.signup-submit-btn {
     margin-top: 20px;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
     background: black;
     color: white;
     padding: 15px;
@@ -78,13 +92,7 @@
     transition: 0.3s ease;
 }
 
-.login-submit-btn:hover {
+/* Effet hover */
+.signup-submit-btn:hover {
     opacity: 0.8;
-
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
 }
