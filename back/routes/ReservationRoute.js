@@ -1,6 +1,6 @@
 const express = require('express');
 const ReservationController = require('../controllers/ReservationController');
-
+const { authenticateJWT } = require('../middlewares/AuthMiddleware');
 const router = express.Router();
 
 
@@ -23,7 +23,7 @@ const router = express.Router();
  *       500:
  *         description: Erreur serveur interne
  */
-router.get('/', ReservationController.getAllReservation);
+router.get('/',authenticateJWT,ReservationController.getAllReservation);
 
 /**
  * @swagger
@@ -50,6 +50,6 @@ router.get('/', ReservationController.getAllReservation);
  *       500:
  *         description: Erreur serveur interne
  */
-router.post('/', ReservationController.createReservation);
+router.post('/',authenticateJWT, ReservationController.createReservation);
 
 module.exports = router;

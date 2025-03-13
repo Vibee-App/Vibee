@@ -35,6 +35,8 @@ router.post('/login', login);
 
 // Route protégée (accessible seulement pour l'admin)
 
+//Register par type user
+
 /**
  * @swagger
  * /api/authent/registerUser:

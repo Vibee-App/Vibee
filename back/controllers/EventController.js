@@ -45,7 +45,7 @@ const EventController = {
         Tags,
         Tarif,
         Description,
-        Image: Images, // Vérifier la cohérence du champ
+        Images: Images, // Vérifier la cohérence du champ
         Nom
       });
 
