@@ -55,7 +55,6 @@ const registerCompany = async (req, res) => {
   const { username, password, name, adresse, siret, phoneNumber, webSite } =
     req.body;
 
-  // Vérifier que les champs obligatoires sont fournis
   if (!username || !password || !name || !adresse || !siret) {
     return res
       .status(400)

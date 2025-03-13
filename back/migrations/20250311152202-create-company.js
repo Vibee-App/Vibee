@@ -6,9 +6,9 @@ module.exports = {
       accountId: {
         type: Sequelize.UUID,
         allowNull: false,
-        primaryKey: true, // Définir comme clé primaire
+        primaryKey: true, 
         references: {
-          model: 'Accounts', // Doit correspondre exactement au nom de la table Accounts
+          model: 'Accounts', 
           key: 'id',
         },
         onDelete: 'CASCADE',

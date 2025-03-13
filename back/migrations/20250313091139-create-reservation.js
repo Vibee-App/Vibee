@@ -15,19 +15,19 @@ module.exports = {
         type: Sequelize.UUID,
         allowNull: false,
         references: {
-          model: 'Users', // Table des utilisateurs
-          key: 'accountId', // Clé primaire dans la table Users
+          model: 'Users', 
+          key: 'accountId',
         },
-        onDelete: 'CASCADE', // Supprimer la réservation si l'utilisateur est supprimé
+        onDelete: 'CASCADE', 
       },
       eventId: {
         type: Sequelize.UUID,
         allowNull: false,
         references: {
-          model: 'Events', // Table des événements
-          key: 'id', // Clé primaire dans la table Events
+          model: 'Events', 
+          key: 'id', 
         },
-        onDelete: 'CASCADE', // Supprimer la réservation si l'événement est supprimé
+        onDelete: 'CASCADE', 
       },
       createdAt: {
         allowNull: false,
@@ -41,7 +41,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    // Revenir en arrière et supprimer la table 'Reservations'
+    
     await queryInterface.dropTable('Reservations');
   }
 };

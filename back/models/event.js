@@ -10,7 +10,7 @@ const Event = sequelize.define('Event', {
   },
   idCreateur: {
     field: "IdCreateur",
-    type: DataTypes.UUID, // idCreateur devrait être un UUID pour correspondre à l'exemple
+    type: DataTypes.UUID, 
     allowNull: true,
   },
   DateDebut: {
@@ -53,7 +53,7 @@ const Event = sequelize.define('Event', {
     allowNull: true,
   },
 }, {
-  timestamps: true,  // Cela activera createdAt et updatedAt
+  timestamps: true,  
 });
 
 Event.hasMany(Reservation, { foreignKey: 'eventId' });

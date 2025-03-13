@@ -4,21 +4,21 @@ const EventController = {
   // Récupérer tous les événements
   async getAllEvents(req, res) {
     try {
-      // Récupérer les paramètres de pagination
-      const page = parseInt(req.query.page) || 1; // Page actuelle (par défaut: 1)
-      const pageSize = parseInt(req.query.pageSize) || 10; // Nombre d'éléments par page (par défaut: 10)
+  
+      const page = parseInt(req.query.page) || 1; 
+      const pageSize = parseInt(req.query.pageSize) || 10; 
       
-      const offset = (page - 1) * pageSize; // Décalage pour la pagination
+      const offset = (page - 1) * pageSize; 
       const limit = pageSize;
   
-      // Récupérer les événements avec pagination
+      
       const { count, rows: events } = await Event.findAndCountAll({
         limit,
         offset,
-        order: [['DateDebut', 'ASC']], // Trier par date de début (optionnel)
+        order: [['DateDebut', 'ASC']], 
       });
   
-      // Retourner les résultats paginés
+      
       res.status(200).json({
         totalItems: count,
         totalPages: Math.ceil(count / pageSize),
@@ -66,7 +66,7 @@ const EventController = {
         Tags,
         Tarif,
         Description,
-        Images: Images, // Vérifier la cohérence du champ
+        Images: Images, 
         Nom
       });
 

@@ -6,10 +6,10 @@ module.exports = {
         type: Sequelize.UUID,
         primaryKey: true,
         references: {
-          model: 'Accounts', // Table Account à référencer
-          key: 'id', // Clé primaire de la table Account
+          model: 'Accounts',
+          key: 'id', 
         },
-        onDelete: 'CASCADE', // Suppression en cascade
+        onDelete: 'CASCADE', 
       },
       firstName: {
         type: Sequelize.STRING,
