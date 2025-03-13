@@ -1,11 +1,26 @@
-// AuthContext.jsx
-import React, { createContext, useContext, useState } from 'react';
+// AuthContext.tsx
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
-const AuthContext = createContext(null);
+interface AuthUser {
+  token: string;
+  // Vous pouvez ajouter d'autres propriétés utilisateur si besoin
+}
 
-export const AuthProvider = ({ children }) => {
-  // Ici, "user" sera défini si l'utilisateur est authentifié
-  const [user, setUser] = useState(null);
+interface AuthContextType {
+  user: AuthUser | null;
+  setUser: (user: AuthUser | null) => void;
+}
+
+const defaultAuthContext: AuthContextType = {
+  user: null,
+  setUser: () => {},
+};
+
+const AuthContext = createContext<AuthContextType>(defaultAuthContext);
+
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
+  // Utilisation du type AuthUser pour le state
+  const [user, setUser] = useState<AuthUser | null>(null);
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>

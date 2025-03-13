@@ -9,6 +9,7 @@ import Container from './Container.tsx';
 import ProtectedRoute from './context/ProtectedRoute.tsx';
 import Login from './pages/Login/Login.tsx';
 import Signup from './pages/Signup/Signup.tsx';
+import Landing from './pages/landing/Landing.tsx';
 
 const router = createMemoryRouter([
   {
@@ -24,6 +25,8 @@ const router = createMemoryRouter([
           { path: 'events', element: <Events /> },
           { path: 'createEvent', element: <Events /> },
           { path: 'myEvents', element: <Events /> },
+          { path: 'landing', element: <Landing /> },
+          
         ],
       },
       { path: 'login', element: <Login /> },
