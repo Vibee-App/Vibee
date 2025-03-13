@@ -31,10 +31,10 @@ const router = express.Router();
  *         description: Paramètres invalides
  */
 router.post('/login', login);
-router.post('/register', register);
+
 
 // Route protégée (accessible seulement pour l'admin)
-router.get('/user/:id', authenticateJWT, authorizeRole(['admin']), getUserById);
+
 //Register par type user
 /**
  * @swagger
