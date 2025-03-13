@@ -51,7 +51,7 @@ export function CreateEvent() {
       <view className="event-form" onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="Nom" className="event-input" onChange={handleChange} required />
         <input type="text" name="description" placeholder="Description" className="event-input" onChange={handleChange} required />
-        <input type="text" name="location" placeholder="Lieu" className="event-input" onChange={handleChange} required />
+        <input type="text" name="location" placeholder="Adresse" className="event-input" onChange={handleChange} required />
         <input type="number" name="price" placeholder="Tarif" className="event-input" onChange={handleChange} required />
         <input type="date" name="DateDebut" placeholder="Date debut" className="event-input" onChange={handleChange} required />
         <input type="date" name="DateFin" placeholder="Date fin" className="event-input" onChange={handleChange} required />
