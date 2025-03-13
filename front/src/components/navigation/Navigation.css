@@ -1,25 +1,54 @@
-/* Navigation.css */
 .Navigation {
-  position: fixed; /* Permet de la fixer à un endroit précis */
+  /* Barre horizontale fixée en bas */
+  position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
-  background-color: #2c3e50;
-  padding: 10px 0;
+  width: 100%;
+
+  /* Alignement horizontal */
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 1px solid #34495e;
-  z-index: 1000; /* Pour que la navigation soit toujours visible au-dessus des autres éléments */
+
+  /* Hauteur et style */
+  height: 60px;
+  padding: 0 20px; /* Un peu de padding horizontal */
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Pour être au-dessus du contenu */
 }
 
-.NavItem text {
-  color: #ecf0f1;
-  font-size: 16px;
+/* Items de navigation (icônes) */
+.NavItem {
+  /* Dimensions de base pour l'icône */
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: color 0.3s ease;
+
+  /* Petite marge horizontale pour éviter qu'ils ne soient collés */
+  margin: 0 10px;
 }
 
-.NavItem text:hover {
-  color: #e74c3c;
+/* Bouton central (le +) */
+.NavItem--main {
+  /* Ajuste la forme : ici on fait un rond de 60px */
+  width: 80px;
+  border-radius: 20px;
+
+  background: rgb(255, 0, 0);
+  background: linear-gradient(
+    13deg,
+    rgba(255, 0, 0, 1) 11%,
+    rgba(247, 6, 228, 1) 77%
+  );
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* Centrage de l'icône à l'intérieur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

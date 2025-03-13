@@ -1,18 +1,30 @@
 import { useNavigate } from 'react-router';
+import { HomeIcon, PencilIcon, PlusIcon, CalendarIcon, UserIcon } from '../icons/Icons.tsx';
 import './Navigation.css';
 
 export function Navigation() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+  
   return (
     <view className="Navigation">
-      <view className="NavItem">
-        <text bindtap={() => navigate('/landing')}>Accueil</text>
+      <view className="NavItem" bindtap={() => navigate('/landing')}>
+        <HomeIcon />
       </view>
-      <view className="NavItem">
-        <text bindtap={() => navigate('/profiles')}>Profiles</text>
+      
+      <view className="NavItem" bindtap={() => navigate('/myEvents')}>
+        <PencilIcon />
       </view>
-      <view className="NavItem">
-        <text bindtap={() => navigate('/events')}>Événements</text>
+      
+      <view className="NavItem NavItem--main" bindtap={() => navigate('/create')}>
+        <PlusIcon />
+      </view>
+      
+      <view className="NavItem" bindtap={() => navigate('/events')}>
+        <CalendarIcon />
+      </view>
+      
+      <view className="NavItem" bindtap={() => navigate('/profiles')}>
+        <UserIcon />
       </view>
     </view>
   );

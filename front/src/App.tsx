@@ -11,14 +11,12 @@ export function App() {
 
   return (
     <page>
-      
-      <view className="Background" />
       <view className="App">
         <view className="MainContainer">
           <Outlet />
         </view>
-        <Navigation />
       </view>
+      <Navigation />
     </page>
   );
 }

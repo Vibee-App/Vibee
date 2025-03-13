@@ -23,11 +23,4 @@ module.exports = {
     dialect: 'postgres',
     port: process.env.POSTGRESQL_ADDON_PORT
   },
-  test: {
-    username: "root",
-    password: null,
-    database: "database_test",
-    host: "127.0.0.1",
-    dialect: "postgres"
-  }
 };
