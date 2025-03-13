@@ -53,8 +53,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px; /* ✅ Largeur fixe */
-  height: 50px; /* ✅ Hauteur fixe */
 }
 
 .login-button {
@@ -66,6 +64,7 @@
 .signup-button {
   background: black;
   color: white !important; /* ✅ Rend le texte blanc */
+  border: 2px solid black;
 }
 
 /* ✅ Ajout de styles pour rendre le texte visible */

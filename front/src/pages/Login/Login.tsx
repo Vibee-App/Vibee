@@ -6,11 +6,9 @@ export function Login() {
 
   return (
     <view className="login-page">
-      {/* ✅ Flèche en haut et titre en-dessous */}
       <view className="login-header">
+        <text className="login-title">Se Connecter</text>
         <text className="login-back-btn" bindtap={() => navigate('/')}>←</text>
-      
-      <text className="login-title">Se Connecter</text>
       </view>
       <view className="login-form">
         <input type="email" placeholder="jane@example.com" className="login-input" />
@@ -18,7 +16,7 @@ export function Login() {
       </view>
 
       <view className="login-submit-btn" bindtap={() => alert('Connexion réussie !')}>
-        <text>SE CONNECTER</text>
+        <text className='white'>SE CONNECTER</text>
       </view>
     </view>
   );

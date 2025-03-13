@@ -8,9 +8,8 @@ export function Signup() {
     <view className="signup-page">
 
         <view className="signup-header">
-            
-            <text className="signup-back-btn" bindtap={() => navigate('landing')}>←</text>  
-            <text className="signup-title">S'inscrire</text>
+        <text className="signup-title">S'inscrire</text>
+        <text className="signup-back-btn" bindtap={() => navigate('/')}>←</text>  
         </view>
       <view className="signup-form">
         <input type="text" className="signup-input" placeholder="Nom" />
@@ -21,7 +20,7 @@ export function Signup() {
       </view>
 
       <view className="signup-submit-btn" bindtap={() => alert('Inscription réussie !')}>
-        <text>S'INSCRIRE</text>
+        <text className='white'>S'INSCRIRE</text>
       </view>
     </view>
   );
