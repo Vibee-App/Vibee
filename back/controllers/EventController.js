@@ -4,8 +4,29 @@ const EventController = {
   // Récupérer tous les événements
   async getAllEvents(req, res) {
     try {
-      const events = await Event.findAll(); 
-      res.status(200).json(events);
+      // Récupérer les paramètres de pagination
+      const page = parseInt(req.query.page) || 1; // Page actuelle (par défaut: 1)
+      const pageSize = parseInt(req.query.pageSize) || 10; // Nombre d'éléments par page (par défaut: 10)
+      
+      const offset = (page - 1) * pageSize; // Décalage pour la pagination
+      const limit = pageSize;
+  
+      // Récupérer les événements avec pagination
+      const { count, rows: events } = await Event.findAndCountAll({
+        limit,
+        offset,
+        order: [['DateDebut', 'ASC']], // Trier par date de début (optionnel)
+      });
+  
+      // Retourner les résultats paginés
+      res.status(200).json({
+        totalItems: count,
+        totalPages: Math.ceil(count / pageSize),
+        currentPage: page,
+        pageSize,
+        events,
+      });
+  
     } catch (error) {
       console.error("Erreur lors de la récupération des événements :", error);
       res.status(500).json({ error: "Une erreur est survenue lors de la récupération des événements." });
