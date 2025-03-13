@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import './Landing.css';
 import logo from './../../assets/bee.png';
 
@@ -9,7 +9,6 @@ export function Landing() {
 
   return (
     <view className="landing-container">
-      
       <view className="logo">
         <image src={logo} className="logo-icon" />
         <text className="app-name">Vibee</text>
@@ -23,6 +22,7 @@ export function Landing() {
           <text className="button signup-button">S'INSCRIRE</text>
         </view>
       </view>
+      <Outlet />
     </view>
   );
 }

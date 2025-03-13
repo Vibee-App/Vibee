@@ -1,24 +1,19 @@
 import { root } from '@lynx-js/react';
-import { App } from './App.jsx';
-import { createMemoryRouter, RouterProvider } from 'react-router';
-import {Landing} from './pages/landing/Landing.tsx';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext.tsx';
+import Landing from './pages/landing/Landing.tsx';
+import Profile from './pages/profile/Profile.tsx';
+import Events from './pages/events/Events.tsx';
+import ProtectedRoute from './context/ProtectedRoute.tsx';
+import { App } from './App.tsx';
+import Home from './pages/Home.tsx';
+import router from './Router.tsx';
 
-import Profile from './pages/profile/Profile.jsx';
-import Events from './pages/events/Events.jsx';
-
-const router = createMemoryRouter([
-  {
-    path: '/',
-    element: <App/>,
-    children: [
-      { path: 'landing', element: <Landing /> },
-      { path: 'profiles', element: <Profile /> },
-      { path: 'events', element: <Events /> },
-    ],
-  },
-]);
-
-root.render(<RouterProvider router={router} />);
+root.render(
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
+);
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept();
