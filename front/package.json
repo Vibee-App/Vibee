@@ -9,7 +9,8 @@
     "dev:web": "cd ../web-view && npm run dev",
     "dev": "concurrently \"npm run dev:front\" \"npm run dev:web\"",
     "format": "biome format --write",
-    "preview": "rspeedy preview"
+    "preview": "rspeedy preview",
+    "start": "dev:front"
   },
   "dependencies": {
     "@clack/core": "^0.4.1",
