@@ -21,7 +21,7 @@ export interface Event {
 export const fetchEvents = async () => {
     try {
         console.error("Appel lancé:");
-      const response = await fetch("http://localhost:4000/ok"); 
+      const response = await fetch("http://localhost:4000/api/event"); 
       if (!response.ok) {
         throw new Error(`Erreur serveur: ${response.status}`);
       }
