@@ -6,9 +6,12 @@ export function Signup() {
 
   return (
     <view className="signup-page">
-      <view className="signup-back-btn" bindtap={() => navigate('/')}>←</view>  
-      <text className="signup-title">S'inscrire</text>
 
+        <view className="signup-header">
+            
+            <text className="signup-back-btn" bindtap={() => navigate('landing')}>←</text>  
+            <text className="signup-title">S'inscrire</text>
+        </view>
       <view className="signup-form">
         <input type="text" className="signup-input" placeholder="Nom" />
         <input type="text" className="signup-input" placeholder="Prénom" />
