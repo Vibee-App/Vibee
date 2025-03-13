@@ -33,6 +33,10 @@ module.exports = {
       Description: {
         type: Sequelize.STRING(10000)
       },
+      Summary: {
+        type: Sequelize.STRING(10000),
+        allowNull: true,
+      },
       Image: {
         type: Sequelize.STRING
       },
