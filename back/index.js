@@ -8,7 +8,7 @@ const basename = path.basename(__filename); // Nom du fichier actuel
 const env = process.env.NODE_ENV || "development"; // Environnement (par défaut 'development')
 const config = require(__dirname + "/config/config.js")[env]; // Chargement de la config en fonction de l'environnement
 const db = {};
-
+const cors = require("cors"); 
 // Importation des modules Swagger
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
