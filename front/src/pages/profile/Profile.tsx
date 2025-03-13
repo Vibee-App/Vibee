@@ -17,7 +17,6 @@ const mockUser: UserProfile = {
 };
 
 const Profile: React.FC = () => {
-
   return (
     <scroll-view className="container">
       <text className="title">User Profile</text>
