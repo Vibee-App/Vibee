@@ -8,6 +8,7 @@ import Events from './pages/events/Events.tsx';
 import Container from './Container.tsx';
 import ProtectedRoute from './context/ProtectedRoute.tsx';
 import Login from './pages/Login/Login.tsx';
+import Accueil from './pages/accueil/Accueil.tsx';
 
 const router = createMemoryRouter([
   {
@@ -23,6 +24,7 @@ const router = createMemoryRouter([
           { path: 'events', element: <Events /> },
           { path: 'createEvent', element: <Events /> },
           { path: 'myEvents', element: <Events /> },
+          { path: 'accueil', element: <Accueil /> },
         ],
       },
       { path: 'login', element: <Login /> },

@@ -26,6 +26,10 @@ const Events: React.FC = () => {
         <text>Aucun événement disponible.</text>
       ) : (
         <view>
+          <scroll-view
+              scroll-orientation="vertical"
+              style={{ width: "calc(100% - 10px)", height: "100vh", paddingLeft: "5px", borderRadius: "10px" }}
+              >
           {events.map((event) => (
             <view key={event.id} style={{ marginBottom: "10px", border: "10px solid #ccc", padding: "10px" }}>
               <text>{event.Nom}</text>
@@ -37,6 +41,7 @@ const Events: React.FC = () => {
               <image src={event.Image} style={{ maxWidth: "200px", borderRadius: "5px" }} />
             </view>
           ))}
+          </scroll-view>
         </view>
       )}
     </view>

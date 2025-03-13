@@ -13,6 +13,7 @@ export default defineConfig({
     pluginReactLynx(),
   ],
   environments: {
+    lynx :{},
     web: {
       output: {
         assetPrefix: '/',

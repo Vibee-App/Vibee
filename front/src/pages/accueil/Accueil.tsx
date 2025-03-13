@@ -1,24 +1,38 @@
 import { useEffect, useState } from '@lynx-js/react';
+import { fetchEvents } from "../../services/eventService.ts";
 import './Accueil.css';
 
-interface Event {
-  event_id: number;
-  image: string;
-  event: string;
-  tags: string[];
-  timeStamp: number;
-  adresse: string;
-  resumer: string;
+export interface Event {
+  id: string;
+  idCreateur: string;
+  DateDebut: string;
+  DateFin: string;
+  Lieu: string;
+  Adresse: string;
+  Tags: string;
+  Tarif: number;
+  Description: string;
+  Image: string;
+  Nom: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface EventOutput {
-  event_id: number;
-  image: string;
-  event: string;
-  tags: string[];
-  heure_debut: string;
-  date_debut: number;
-  adresse: string;
+  id: string;
+  idCreateur: string;
+  DateDebut: string;
+  DateFin: string;
+  Lieu: string;
+  Adresse: string;
+  Tags: string;
+  Tarif: number;
+  Description: string;
+  Image: string;
+  Nom: string;
+  createdAt: string;
+  updatedAt: string;
+  heureDebut: string;
   resumer: string;
 }
 
@@ -26,71 +40,83 @@ export function Accueil() {
   const [listEvents, setListEvents] = useState<EventOutput[]>([]);
   const [listEventsToday, setListEventsToday] = useState<EventOutput[]>([]);
   const [isLoaded, setLoaded] = useState(false);
-
-  // Données d'exemple
-  const table: Event[] = [
-    {
-      event_id: 106373,
-      image: 'https://www.bigcitynantes.fr/wp-content/uploads/2024/01/Chevaliers-©-Archivio-Fotografico-Museo-Stibbert.jpg',
-      event: 'Exposition Chevaliers',
-      tags: ['EXPO'],
-      timeStamp: Date.now(),
-      adresse: '2 Rue des Etats, 44000, Nantes',
-      resumer: 'L’exposition Chevaliers se tiendra au Château des Ducs de Bretagne à Nantes...',
-    },
-    {
-      event_id: 106754,
-      image: 'https://www.bigcitynantes.fr/wp-content/uploads/2024/08/immersia.jpg',
-      event: 'Spectacle son et lumière Immersia',
-      tags: ['SPECTACLE'],
-      timeStamp: Date.now(),
-      adresse: '5 Place du Sanitat, 44100, Nantes',
-      resumer: 'L’événement aura lieu à l’église Notre-Dame-de-Bon-Port à Nantes...',
-    },
-  ];
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  
+  useEffect(() => {
+    const loadEvents = async () => {
+      const data = await fetchEvents();
+      setEvents(data);
+      setLoading(false);
+    };
+    loadEvents();
+  }, []);
 
   const convertBeginDates = () => {
     const now = new Date();
+    const todayEvents: EventOutput[] = [];
+    const upcomingEvents: EventOutput[] = [];
 
-    table.forEach(element => {
-      const timestamp = element.timeStamp;
+    events.forEach(element => {
+      const timestamp = element.DateDebut;
       const date = new Date(timestamp);
 
       const isToday = date.getDate() === now.getDate() &&
                       date.getMonth() === now.getMonth() &&
                       date.getFullYear() === now.getFullYear();
 
-      const heures = date.getHours(); // Récupère l'heure (0-23)
-      const minutes = date.getMinutes(); // Récupère les minutes (0-59)
+      const newDate = date.getDate();
+      const newMonth = date.getMonth(); // Renvoie un nombre de 0 à 11
+      const newFullYear = date.getFullYear();
 
-      const heureFormatee = `${String(heures).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
+      // Tableau des mois en français
+      const moisEnLettres = [
+        "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+        "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+      ];
+      const monthLettre = moisEnLettres[newMonth]; // Récupération correcte du mois
+
+      const dateFormatee = `${newDate} ${monthLettre} ${newFullYear}`;
+
+      const heures = date.getHours();
+      const minutes = date.getMinutes();
+      const heureFormatee = `${String(heures).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 
       const eventData: EventOutput = {
-        event_id: element.event_id,
-        image: element.image,
-        event: element.event,
-        tags: element.tags,
-        heure_debut: heureFormatee,
-        date_debut: date.getTime(),
-        adresse: element.adresse,
-        resumer: element.resumer,
+        id: element.id,
+        idCreateur: element.idCreateur,
+        Image: element.Image,
+        Nom: element.Nom,
+        Tags: element.Tags,
+        Tarif: element.Tarif,
+        heureDebut: heureFormatee,
+        DateDebut: dateFormatee,
+        DateFin: element.DateFin,
+        Adresse: element.Adresse,
+        Lieu: element.Lieu,
+        Description: element.Description,
+        createdAt: element.createdAt,
+        updatedAt: element.updatedAt,
+        resumer: ""
       };
 
       if (isToday) {
-        setListEventsToday((prev) => [...prev, eventData]);
+        todayEvents.push(eventData);
       } else {
-        setListEvents((prev) => [...prev, eventData]);
+        upcomingEvents.push(eventData);
       }
     });
 
-    setTimeout(() => {
-      setLoaded(true);
-    }, 1000);
+    setListEventsToday(todayEvents);
+    setListEvents(upcomingEvents);
+    setLoaded(true);
   };
 
   useEffect(() => {
-    convertBeginDates();
-  }, []);
+    if (events.length > 0) {
+      convertBeginDates();
+    }
+  }, [events]);
 
   if (!isLoaded) {
     return (
@@ -102,68 +128,72 @@ export function Accueil() {
 
   return (
     <view className='accueil-container'>
-      <view className='filterBar'>
-        {/* Des éléments de filtrage ou autres éléments peuvent être ajoutés ici */}
-      </view>
+      <scroll-view
+      scroll-orientation="vertical"
+      style={{ width: "calc(100% - 10px)", height: "100vh", paddingLeft: "5px", borderRadius: "10px" }}
+      >
+        <view className='filterBar'>
+          {/* Des éléments de filtrage ou autres éléments peuvent être ajoutés ici */}
+        </view>
         <view>
           <text className='event-title event-position-array-title'>Quoi de neuf aujourd'hui</text>
         </view>
-        <list
-        scroll-orientation="vertical"
-        list-type="single"
-        span-count={1}
-        style={{
-          width: '100%',
-          height: '100vh',
-          listMainAxisGap: '5px',
-          padding: '10px',
-        }}
-      >
-        {listEventsToday.map((event) => (
-          <list-item
-            item-key={`list-item-${event.event_id}`}
-            key={`list-item-${event.event_id}`}
+          <list
+            scroll-orientation="vertical"
+            list-type="single"
+            span-count={1}
+            style={{
+              width: '100%',
+              height: '100vh',
+              listMainAxisGap: '5px',
+              padding: '10px',
+            }}
           >
-            <view className="event-item">
-              <image src={event.image} className="event-image" />
-              <view className="event-details">
-                <text className="event-title">{event.event}</text>
-                <text className="event-title title-date">{event.date_debut} à {event.heure_debut}</text>
-              </view>
-            </view>
-          </list-item>
-        ))}
-        </list>
+            {listEventsToday.map((event) => (
+              <list-item
+                item-key={`list-item-${event.id}`}
+                key={`list-item-${event.id}`}
+              >
+                <view className="event-item">
+                  <image src={event.Image} className="event-image" />
+                  <view className="event-details">
+                    <text className="event-title">{event.Nom}</text>
+                    <text className="event-title title-date">{event.DateDebut} à {event.heureDebut}</text>
+                  </view>
+                </view>
+              </list-item>
+            ))}
+          </list>
         <view>
           <text className='event-title'>Parcourir tout</text>
         </view>
         <list
-        scroll-orientation="vertical"
-        list-type="single"
-        span-count={1}
-        style={{
-          width: '100%',
-          height: '100vh',
-          listMainAxisGap: '5px',
-          padding: '10px',
-        }}
-      >
-        {listEvents.map((event) => (
-          <list-item
-            item-key={`list-item-${event.event_id}`}
-            key={`list-item-${event.event_id}`}
-          >
-            <view className="event-item">
-              <image src={listEvents[0].image} className="event-image" />
-              <view className="event-details">
-                <text>{listEvents[0].event_id}</text>
-                <text className="event-title">{listEvents[0].event}</text>
-                <text className="event-title title-date">{event.date_debut} à {listEvents[0].heure_debut}</text>
+          scroll-orientation="vertical"
+          list-type="single"
+          span-count={1}
+          style={{
+            width: '100%',
+            height: '100vh',
+            listMainAxisGap: '5px',
+            padding: '10px',
+          }}
+        >
+          {listEventsToday.map((event) => (
+            <list-item
+              item-key={`list-item-${event.id}`}
+              key={`list-item-${event.id}`}
+            >
+              <view className="event-item">
+                <image src={event.Image} className="event-image" />
+                <view className="event-details">
+                  <text className="event-title">{event.Nom}</text>
+                  <text className="event-title title-date">{event.DateDebut} à {event.heureDebut}</text>
+                </view>
               </view>
-            </view>
-          </list-item>
-        ))}
-      </list>
+            </list-item>
+          ))}
+        </list>
+      </scroll-view>
     </view>
   );
 }
