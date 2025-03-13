@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run dev:front\" \"npm run dev:web\"",
     "format": "biome format --write",
     "preview": "rspeedy preview",
-    "start": "dev:front"
+    "start": "rspeedy dev"
   },
   "dependencies": {
     "@clack/core": "^0.4.1",
