@@ -5,11 +5,12 @@ import {Landing} from './pages/landing/Landing.tsx';
 
 import Profile from './pages/profile/Profile.jsx';
 import Events from './pages/events/Events.jsx';
+import Accueil from './pages/accueil/Accueil.tsx';
 
 const router = createMemoryRouter([
   {
     path: '/',
-    element: <App/>,
+    element: <Accueil />,
     children: [
       { path: 'landing', element: <Landing /> },
       { path: 'profiles', element: <Profile /> },
