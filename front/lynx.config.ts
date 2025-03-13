@@ -13,19 +13,10 @@ export default defineConfig({
     pluginReactLynx(),
   ],
   environments: {
-    lynx: {},
     web: {
-      source: {
-        entry: {
-          web: '/src/index.jsx',
-        },
-      },
       output: {
         assetPrefix: '/',
       },
     },
-  },
-  source: {
-    entry: '/src/index.jsx',
   },
 });
