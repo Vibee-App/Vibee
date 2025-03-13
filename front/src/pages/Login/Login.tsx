@@ -28,11 +28,7 @@ export function Login() {
         />
       </view>
       <view className="input-container">
-        <input
-          type="password"
-          placeholder="********"
-          className="input-field"
-        />
+        <input type="password" placeholder="********" className="input-field" />
       </view>
 
       <text className="button login-button" bindtap={handleLogin}>

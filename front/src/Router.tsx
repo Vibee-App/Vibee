@@ -25,7 +25,7 @@ const router = createMemoryRouter([
           { path: 'myEvents', element: <Events /> },
         ],
       },
-      { path: 'login', element: <Login/> },
+      { path: 'login', element: <Login /> },
       { path: 'signup', element: <text>Signup</text> },
     ],
   },

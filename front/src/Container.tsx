@@ -6,7 +6,7 @@ import './Container.css';
 const Container = () => {
   return (
     <view>
-      <view className='Container'>
+      <view className="Container">
         <Outlet />
       </view>
     </view>
