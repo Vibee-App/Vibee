@@ -12,6 +12,7 @@
     "preview": "rspeedy preview"
   },
   "dependencies": {
+    "@clack/core": "^0.4.1",
     "@lynx-js/react": "^0.105.1",
     "react-router": "^6.30.0",
     "react-router-dom": "^6.30.0"

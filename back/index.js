@@ -30,6 +30,7 @@ if (config.use_env_variable) {
 
 // Définir les routes
 app.use("/api/authent", require("./routes/UserRoute.js"));
+app.use("/api/event", require("./routes/EventRoute.js"));
 
 app.get("/ok", (req, res) => {
   res.send("ok");
