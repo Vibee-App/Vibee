@@ -38,18 +38,13 @@
     font-weight: bold;
     color: black !important;
     text-align: left; 
-    margin: 0; 
+    
+    margin-bottom: 30px;
 }
 .signup-back-btn:hover {
     opacity: 0.7;
 }
 
-/* Titre */
-.signup-title {
-    
-    font-weight: bold;
-    margin-bottom: 30px;
-}
 
 /* Conteneur du formulaire */
 .signup-form {
