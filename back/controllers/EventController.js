@@ -37,7 +37,7 @@ const EventController = {
       console.log('Données reçues :', { idCreateur, DateDebut, DateFin, Lieu, Adresse, Tags, Tarif, Description, Images, Nom });
 
       const newEvent = await Event.create({
-        idCreateur,
+        idCreateur: idCreateur,
         DateDebut: new Date(DateDebut),
         DateFin: new Date(DateFin),
         Lieu,
