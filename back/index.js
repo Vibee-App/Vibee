@@ -19,6 +19,7 @@ const port = process.env.PORT || 4000; // Port sur lequel le serveur écoutera
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 let sequelize;
 if (config.use_env_variable) {
@@ -86,3 +87,7 @@ app.listen(port, () => {
 
 // Exporter les configurations et modèles
 module.exports = db;
+
+
+
+
