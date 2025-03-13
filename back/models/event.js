@@ -41,6 +41,10 @@ const Event = sequelize.define('Event', {
     type: DataTypes.STRING(10000),
     allowNull: true,
   },
+  Summary: {
+    type: DataTypes.STRING(10000),
+    allowNull: true,
+  },
   Image: {
     type: DataTypes.STRING,
     allowNull: true,
