@@ -6,7 +6,7 @@ const Account = require('./account.js');
 const Company = sequelize.define('Company', {
   accountId: {  
     type: DataTypes.UUID,
-    primaryKey: true,  // 🚀 Indique que c'est la clé primaire
+    primaryKey: true,  
     allowNull: false,
   },
   name: {
@@ -33,7 +33,7 @@ const Company = sequelize.define('Company', {
   timestamps: true,
 });
 
-// Relation : Une `Company` appartient à `Account`
+
 Company.belongsTo(Account, { foreignKey: 'accountId', onDelete: 'CASCADE' });
 
 module.exports = Company;

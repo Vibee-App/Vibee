@@ -6,7 +6,7 @@ const Reservation = require('./reservation.js');
 const User = sequelize.define('User', {
   accountId: {  
     type: DataTypes.UUID,
-    primaryKey: true,  // 🚀 Indique que c'est la clé primaire
+    primaryKey: true, 
     allowNull: false,
   },
   firstName: {

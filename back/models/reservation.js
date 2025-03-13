@@ -11,22 +11,22 @@ const Reservation = sequelize.define('Reservation', {
     type: DataTypes.UUID,
     allowNull: false,
     references: {
-      model: 'Users', // La table des utilisateurs
-      key: 'accountId', // La clé primaire de la table Users
+      model: 'Users', 
+      key: 'accountId', 
     },
-    onDelete: 'CASCADE', // Supprime la réservation si l'utilisateur est supprimé
+    onDelete: 'CASCADE', 
   },
   eventId: {
     type: DataTypes.UUID,
     allowNull: false,
     references: {
-      model: 'Events', // La table des événements
-      key: 'id', // La clé primaire de la table Events
+      model: 'Events', 
+      key: 'id',
     },
-    onDelete: 'CASCADE', // Supprime la réservation si l'événement est supprimé
+    onDelete: 'CASCADE', 
   },
 }, {
-  timestamps: true,  // Ajoute createdAt et updatedAt à cette table
+  timestamps: true,  
 });
 
 module.exports = Reservation;
