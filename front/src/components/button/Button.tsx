@@ -18,8 +18,7 @@ export function Button({ text, dark, route }: ButtonProps) {
   useEffect(() => {
     setColor(dark ?? false);
     setButtonText(text);
-    setIsLoaded(true)
-
+    setIsLoaded(true);
   }, [dark, text]);
 
   if (!isLoaded) {
@@ -32,13 +31,16 @@ export function Button({ text, dark, route }: ButtonProps) {
 
   return (
     <view
-    className="input-card-url"
+      className="input-card-url"
       bindtap={() => nav(route)}
-      style={{ backgroundColor: color ? '#000000' : '#FFFFFF', border: "2px solid black"  }}
+      style={{
+        backgroundColor: color ? '#000000' : '#FFFFFF',
+        border: '2px solid black',
+      }}
     >
       <text
         className="button-text"
-        style={{ color: color ? '#FFFFFF' : '#000000'}}
+        style={{ color: color ? '#FFFFFF' : '#000000' }}
       >
         {buttonText}
       </text>

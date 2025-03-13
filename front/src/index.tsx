@@ -12,7 +12,7 @@ import router from './Router.tsx';
 root.render(
   <AuthProvider>
     <RouterProvider router={router} />
-  </AuthProvider>
+  </AuthProvider>,
 );
 
 if (import.meta.webpackHot) {

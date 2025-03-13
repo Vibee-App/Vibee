@@ -5,7 +5,7 @@ import logo from './../../assets/bee.png';
 export function Landing() {
   let navigate = useNavigate();
 
-  console.log("Landing Page chargée ✅");
+  console.log('Landing Page chargée ✅');
 
   return (
     <view className="landing-container">
@@ -13,7 +13,7 @@ export function Landing() {
         <image src={logo} className="logo-icon" />
         <text className="app-name">Vibee</text>
       </view>
-      
+
       <view className="button-container">
         <view bindtap={() => navigate('/login')}>
           <text className="button login-button">SE CONNECTER</text>

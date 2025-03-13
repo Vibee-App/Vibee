@@ -4,9 +4,9 @@ import './App.css';
 import { Navigation } from './components/navigation/Navigation.jsx';
 
 interface userProps {
-  name: string,
-  authenticated: boolean
-};
+  name: string;
+  authenticated: boolean;
+}
 
 const userMock = {
   name: 'John Doe',

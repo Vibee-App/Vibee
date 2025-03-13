@@ -5,7 +5,7 @@ import RootWrapper from './context/RootWrapper.tsx';
 import Home from './pages/Home.tsx'; // page de connexion par exemple
 import Profile from './pages/profile/Profile.tsx';
 import Events from './pages/events/Events.tsx';
-import  Container  from './Container.tsx';
+import Container from './Container.tsx';
 import ProtectedRoute from './context/ProtectedRoute.tsx';
 
 const router = createMemoryRouter([
@@ -13,7 +13,7 @@ const router = createMemoryRouter([
     path: '/',
     element: <Container />,
     children: [
-      { index: true, element: <RootWrapper/> },
+      { index: true, element: <RootWrapper /> },
       {
         // Les routes ci-dessous nécessitent que l'utilisateur soit authentifié.
         element: <ProtectedRoute />,
@@ -24,7 +24,7 @@ const router = createMemoryRouter([
           { path: 'myEvents', element: <Events /> },
         ],
       },
-      {path: 'login', element: <Home />},
+      { path: 'login', element: <Home /> },
     ],
   },
 ]);

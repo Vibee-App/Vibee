@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom';
 
 const Container = () => {
   return (
-      <view>
-          <text>Vibee</text>
+    <view>
+      <text>Vibee</text>
       <view>
         <Outlet />
       </view>
