@@ -32,6 +32,9 @@ if (config.use_env_variable) {
   );
 }
 
+// Définir les routes
+app.use("/api/authent", require("./routes/UserRoute.js"));
+
 // Configuration Swagger
 const swaggerOptions = {
   definition: {

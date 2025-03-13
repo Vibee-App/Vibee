@@ -1,22 +1,43 @@
-import { useNavigate } from 'react-router';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 export function Login() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate('/');
+  };
+
+  const handleLogin = () => {
+    alert('Connexion réussie !');
+  };
 
   return (
     <view className="login-container">
-      <view className="back-button" bindtap={() => navigate('/')}>←</view>  
+      <text className="back-button" bindtap={handleBack}>
+        ←
+      </text>
       <text className="login-title">Se Connecter</text>
 
       <view className="input-container">
-        <input type="email" placeholder="jane@example.com" className="input-field" />
-        <input type="password" placeholder="********" className="input-field" />
+        <input
+          type="email"
+          placeholder="jane@example.com"
+          className="input-field"
+        />
+      </view>
+      <view className="input-container">
+        <input
+          type="password"
+          placeholder="********"
+          className="input-field"
+        />
       </view>
 
-      <view className="button logint-button" bindtap={() => alert('Connexion réussie !')}>
-        <text>SE CONNECTER</text>
-      </view>
+      <text className="button login-button" bindtap={handleLogin}>
+        SE CONNECTER
+      </text>
     </view>
   );
 }
