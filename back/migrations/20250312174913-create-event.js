@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       Tarif: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       Description: {
         type: Sequelize.STRING

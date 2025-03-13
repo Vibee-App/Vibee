@@ -58,6 +58,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Définir les routes
 app.use("/api/authent", require("./routes/UserRoute.js"));
 app.use("/api/event", require("./routes/EventRoute.js"));
+app.use("/api/reservation", require("./routes/ReservationRoute.js"));
 
 // Exemple de route
 /**

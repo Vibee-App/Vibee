@@ -34,7 +34,7 @@ const Event = sequelize.define('Event', {
     allowNull: true,
   },
   Tarif: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: true,
   },
   Description: {
