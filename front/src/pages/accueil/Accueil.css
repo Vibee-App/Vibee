@@ -36,6 +36,12 @@
   border-radius: 10px;
 }
 
+.event-details{
+  display: flex;
+  justify-content:flex-start;
+  flex-direction: column;
+}
+
 .event-title{
   margin-top: 4px;
   font-family: "Roboto", sans-serif;

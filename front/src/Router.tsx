@@ -17,7 +17,6 @@ const router = createMemoryRouter([
     children: [
       { index: true, element: <RootWrapper /> },
       {
-        // Les routes ci-dessous nécessitent que l'utilisateur soit authentifié.
         element: <ProtectedRoute />,
         children: [
           { path: 'profiles', element: <Profile /> },

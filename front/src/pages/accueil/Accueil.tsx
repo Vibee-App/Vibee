@@ -52,7 +52,7 @@ export function Accueil() {
     loadEvents();
   }, []);
 
-  const convertBeginDates = () => {
+  const convertBeginDates = () => { //Changes les donnée dates et stock dans 2 tableaux diffférents (Aujourd'hui et les autres jours)
     const now = new Date();
     const todayEvents: EventOutput[] = [];
     const upcomingEvents: EventOutput[] = [];
@@ -100,10 +100,10 @@ export function Accueil() {
         resumer: ""
       };
 
-      if (isToday) {
-        todayEvents.push(eventData);
-      } else {
-        upcomingEvents.push(eventData);
+      if (isToday === true) {
+        todayEvents.push(eventData); //Stock les events d'aujourd'hui
+      } else if(isToday === false){
+        upcomingEvents.push(eventData); //Stock les autres events
       }
     });
 
@@ -112,7 +112,7 @@ export function Accueil() {
     setLoaded(true);
   };
 
-  useEffect(() => {
+  useEffect(() => { //Lance la conversion des données lors de l'arrivée d'évènement
     if (events.length > 0) {
       convertBeginDates();
     }
@@ -156,10 +156,8 @@ export function Accueil() {
               >
                 <view className="event-item">
                   <image src={event.Image} className="event-image" />
-                  <view className="event-details">
-                    <text className="event-title">{event.Nom}</text>
-                    <text className="event-title title-date">{event.DateDebut} à {event.heureDebut}</text>
-                  </view>
+                  <text className="event-title">{event.Nom}</text>
+                  <text className="event-title title-date">{event.DateDebut} à {event.heureDebut}</text>
                 </view>
               </list-item>
             ))}
@@ -178,17 +176,15 @@ export function Accueil() {
             padding: '10px',
           }}
         >
-          {listEventsToday.map((event) => (
+          {listEventsToday.map((event2) => (
             <list-item
-              item-key={`list-item-${event.id}`}
-              key={`list-item-${event.id}`}
+              item-key={`list-item-${event2.id}`}
+              key={`list-item-${event2.id}`}
             >
               <view className="event-item">
-                <image src={event.Image} className="event-image" />
-                <view className="event-details">
-                  <text className="event-title">{event.Nom}</text>
-                  <text className="event-title title-date">{event.DateDebut} à {event.heureDebut}</text>
-                </view>
+                <image src={event2.Image} className="event-image" />
+                <text className="event-title">{event2.Nom}</text>
+                <text className="event-title title-date">{event2.DateDebut} à {event2.heureDebut}</text>
               </view>
             </list-item>
           ))}
