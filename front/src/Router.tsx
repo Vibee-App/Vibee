@@ -8,8 +8,7 @@ import Events from './pages/events/Events.tsx';
 import Container from './Container.tsx';
 import ProtectedRoute from './context/ProtectedRoute.tsx';
 import Login from './pages/Login/Login.tsx';
-import Signup from './pages/Signup/Signup.tsx';
-import Landing from './pages/landing/Landing.tsx';
+import Accueil from './pages/accueil/Accueil.tsx';
 
 const router = createMemoryRouter([
   {
@@ -18,15 +17,12 @@ const router = createMemoryRouter([
     children: [
       { index: true, element: <RootWrapper /> },
       {
-        // Les routes ci-dessous nécessitent que l'utilisateur soit authentifié.
         element: <ProtectedRoute />,
         children: [
           { path: 'profiles', element: <Profile /> },
           { path: 'events', element: <Events /> },
           { path: 'createEvent', element: <Events /> },
           { path: 'myEvents', element: <Events /> },
-          { path: 'landing', element: <Landing /> },
-          
         ],
       },
       { path: 'login', element: <Login /> },
